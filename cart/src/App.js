@@ -12,7 +12,7 @@ function App({dataFromHostForCart}) {
   return (
     <div className="App">
       <h1>Cart App</h1>
-      <p>{dataFromHostForCart?.itemData?.itemName}</p>
+      <p>Data get from Host App : {dataFromHostForCart?.itemData?.itemName}</p>
       <input type="text" value={cartData} onChange={handleChange} />
     </div>
   );
