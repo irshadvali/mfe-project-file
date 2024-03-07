@@ -1,4 +1,5 @@
 const { merge } = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
@@ -6,22 +7,28 @@ const packageJson = require('../package.json');
 const devConfig = {
   mode: 'development',
   output: {
-    publicPath: 'http://localhost:8080/',
+    publicPath: 'http://localhost:8082/',
   },
   devServer: {
-    port: 8080,
+    port: 8082,
     historyApiFallback: {
       historyApiFallback: true,
+    },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
     },
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'host',
-      remotes: {
-        dashboard: 'dashboard@http://localhost:8083/remoteEntry.js',
-        cart: 'cart@http://localhost:8082/remoteEntry.js',
+      name: 'cart',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './CartApp': './src/bootstrap',
       },
       shared: packageJson.dependencies,
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
     }),
   ],
 };
