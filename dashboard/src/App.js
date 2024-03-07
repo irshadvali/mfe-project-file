@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 function App({dataFromHost}) {
-  console.log("in Dashboard===", dataFromHost?.title)
+  console.log("in Dashboard===", dataFromHost)
   const [childData, setChildData] = useState('');
 
   const handleChange = (event) => {

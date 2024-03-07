@@ -1,8 +1,10 @@
 import React from "react";
-function App() {
+function App({dataFromHostForCart}) {
+  console.log("in cartApp===", dataFromHostForCart?.itemData?.itemName)
   return (
     <div className="App">
-      <p>Cart App</p>
+      <h1>Cart App</h1>
+      <p>{dataFromHostForCart?.itemData?.itemName}</p>
     </div>
   );
 }

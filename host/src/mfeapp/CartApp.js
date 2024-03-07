@@ -2,11 +2,11 @@
 import { mount } from 'cart/CartApp';
 import React, { useRef, useEffect } from 'react';
 
-export default () => {
+export default (dataForCartApp) => {
   
   const ref = useRef(null);
   useEffect(() => {
-    mount(ref.current);
+    mount(ref.current, dataForCartApp);
   }, []);
 
   return <div ref={ref} />;
