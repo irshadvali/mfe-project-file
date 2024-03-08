@@ -21,6 +21,7 @@ const devConfig = {
         dashboard: 'dashboard@http://localhost:8083/remoteEntry.js',
         cart: 'cart@http://localhost:8082/remoteEntry.js',
         walk: 'walk@http://localhost:8084/remoteEntry.js',
+        tutorial: 'tutorial@http://localhost:8085/remoteEntry.js',
       },
       shared: packageJson.dependencies,
     }),

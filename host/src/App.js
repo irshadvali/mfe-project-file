@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import DashboardApp from './mfeapp/DashboardApp';
 import CartApp from './mfeapp/CartApp';
 import WalkApp from './mfeapp/WalkApp';
+import TutorialApp from './mfeapp/TutorialApp';
+
 function App() {
   const [cartNewData, setCartnewData]= useState('');
   let personObj = {firstName:"John", lastName:"Doe", age:20, eyeColor:"black"};
@@ -16,10 +18,12 @@ function App() {
   return (
     <div>
       <p>Host App</p>
+      <TutorialApp></TutorialApp>
       <DashboardApp myDatat={"abcd"} personObj={personObj} title={'From Host'} onChildDataChange={handleChildDataChange} ></DashboardApp>
       <CartApp itemData={itemObj} onCartDataChange={handleCartDataChnage}></CartApp>
       <p>In Side host App : {cartNewData}</p>
       <WalkApp></WalkApp>
+      
     </div>
   );
 }
